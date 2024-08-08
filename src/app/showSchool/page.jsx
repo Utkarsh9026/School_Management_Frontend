@@ -36,16 +36,75 @@ const ShowSchool = () => {
             data.map((school) => (
               <div
                 key={school.id}
-                className="bg-white bg-opacity-90 p-2 m-4 rounded-lg shadow-2xl w-60 border border-gray-100"
+                className="bg-white bg-opacity-90 p-4 m-4 rounded-lg shadow-2xl w-64 border border-gray-100 relative"
               >
                 <img
                   src={`http://localhost:5000/image/${school.imagePath}`}
                   alt={school.name}
-                  className="w-full h-32 object-cover rounded-md"
+                  className="w-full h-40 object-cover rounded-md"
                 />
-                <h2 className="text-xl font-bold mt-2">{school.name}</h2>
-                <p className="text-base line-clamp-1">{school.address}</p>
-                <p className="text-[13px]">{school.city}</p>
+                <div className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md">
+                  <button className="text-pink-500 hover:text-pink-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <h2 className="text-lg font-bold mt-2 line-clamp-1">
+                  {school.name}
+                </h2>
+                <p className="text-gray-600 text-sm">{school.city}</p>
+                <div className="flex items-center mt-1">
+                  <div className="flex text-yellow-500">
+                    {[...Array(4)].map((_, index) => (
+                      <svg
+                        key={index}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M12 4.8l2.426 4.925 5.426.791-3.927 3.827.926 5.4L12 16.4l-4.851 2.542.926-5.4-3.927-3.827 5.426-.791L12 4.8z"
+                        />
+                      </svg>
+                    ))}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.8l2.426 4.925 5.426.791-3.927 3.827.926 5.4L12 16.4l-4.851 2.542.926-5.4-3.927-3.827 5.426-.791L12 4.8z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-gray-600 text-sm ml-2">(4.0)</span>
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="text-blue-500 text-xs">{school.board}</p>
+                  <p className="text-gray-600 text-xs">{school.address}</p>
+                </div>
               </div>
             ))}
         </div>
